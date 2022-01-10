@@ -4,6 +4,8 @@ async function main() {
   const MyERC20 = await ethers.getContractFactory("MyERC20");
   const instance = await hre.upgrades.deployProxy(MyERC20,{kind: 'uups'});
   await instance.deployed();
+
+  console.log("Contrac",instance.address);
 }
 
 main().catch((error) => {
